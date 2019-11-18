@@ -2,7 +2,7 @@
 
 Loren's arduino assignments.
 
-			  		  hello_functions  
+			  			  hello_functions  
 
 
 I used a function to have the Hc-sro4 measure the distance constantly with a small 
