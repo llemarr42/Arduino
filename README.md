@@ -8,8 +8,8 @@ Loren's arduino assignments.
 I used a function to have the Hc-sro4 measure the distance constantly with a small 
 delay and moves the servo based on the distance it finds.
 
-
-
+						Learned
+*
 
 
 
@@ -21,4 +21,4 @@ delay and moves the servo based on the distance it finds.
 When you press the button the Hc-sr04 finds the distance and and lcd diplays it 
 utill the button is pressed again and it displays the new distance.
 
-
+							Learned
