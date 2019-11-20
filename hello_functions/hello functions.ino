@@ -1,55 +1,55 @@
-#include<Servo.h>
-int trigPin=2;
-int echoPin=3;
-
-long duration;
-int distance;
-Servo servo;
-
+#include <Servo.h>
+Servo myServo;
+int angle = 0;
+int echo = 6;
+int trig = 7;
+long duration, cm = 0;
 void setup()
 {
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  Serial.begin(9600);
-  servo.attach(9);
+	Serial.begin(9600);
+	pinMode(echo, INPUT);
+	pinMode(trig, OUTPUT);
+	myServo.attach(9);
 }
 
 void loop()
 {
-  for(int i=15;i<=165;i++)
-  {
-    servo.write(i);
-    distance=calculateDistance();
-    
-    Serial.print(i);
-    Serial.print(",");
-    Serial.print(distance);
-    Serial.println(".");
-  }
-
-  for(int i=165;i>15;i--)
-  {
-    servo.write(i);
-    delay(50);
-    distance=calculateDistance();
-    
-    Serial.print(i);
-    Serial.print(",");
-    Serial.print(distance);
-    Serial.println(".");
-  }
-
+	/*
+	Serial.print(cm);
+	Serial.print("cm");
+	Serial.println();
+	delay(50);
+	*/
+	/*
+	if (cm >= 50)
+	{
+	angle = angle + 10;
+	}
+	if (cm <= 49 and cm >= 20)
+	{
+	angle = angle + 5;
+	}
+	if (cm <= 19 and cm >= 5)
+	{
+	angle = angle + 1;
+	}
+	*/
+	angle = map(cm, 0, 70, 0, 180);
+	angle = constrain(angle, 0, 180);
+	myServo.write(angle);
+	Serial.println(angle);
 }
 
-int calculateDistance()
+int getdistance()
 {
-  digitalWrite(trigPin,LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin,HIGH);
-  delayMicroseconds(10); 
-  digitalWrite(trigPin,LOW);
-  
-  duration=pulseIn(echoPin,HIGH);
-  distance=duration*0.034/2;
-  return distance;
-}  
+digitalWrite(trig, LOW);
+	delayMicroseconds(5);
+	digitalWrite(trig, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(trig, LOW);
+	pinMode(echo, INPUT);
+	duration = pulseIn(echo, HIGH);
+	cm = (duration/2) / 29.1;
+	return cm;
+}
+
