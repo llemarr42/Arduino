@@ -26,4 +26,9 @@ utill the button is pressed again and it displays the new distance.
 
 							Learned
 
-*
+* I relearned the lcd wiring and code
+
+* I also relearned the code to have the button be activated once when pressed/held down.
+
+							Code
+![GitHub Arduino](media/NewPing.jpg)
