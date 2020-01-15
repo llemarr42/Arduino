@@ -1,0 +1,36 @@
+#include <NewPing.h>
+#define TRIGGER_PIN 12
+#define ECHO_PIN 11
+#define MAX_DISTANCE 200
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+NewPing myHCSR04(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+int duration = 0;
+int cm = 0;
+int distance = 0;
+int button = 0;
+int pause = 0;
+int buttonPin = 7;
+void setup()
+{
+	pinMode(buttonPin, INPUT);
+	Serial.begin(9600);
+	lcd.init();
+	lcd.setBacklight(HIGH);
+	lcd.setCursor(0, 0);
+	lcd.print("The distance");
+}
+
+void loop()
+{
+	button = digitalRead(buttonPin);
+	if (button == HIGH and pause == LOW)
+	{
+		lcd.setCursor(0, 1);
+		lcd.print(myHCSR04.ping_cm());
+		lcd.print("cm");
+	}
+	button = pause;
+	Serial.println(myHCSR04.ping_cm());
+}

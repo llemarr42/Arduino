@@ -1,0 +1,12 @@
+int getdistance()
+{
+digitalWrite(TRIGGER_PIN, LOW);
+	delayMicroseconds(2);
+	digitalWrite(TRIGGER_PIN, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(TRIGGER_PIN, LOW);
+	pinMode(ECHO_PIN, INPUT);
+	duration = pulseIn(ECHO_PIN, HIGH);
+	cm = (duration/2) / 29.1;
+	return cm;
+}
