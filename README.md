@@ -11,9 +11,9 @@ delay and moves the servo based on the distance it finds.
 						Learned
 * I learned what a fuction is, what is used for, and how to use it.
 
-*I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
+* I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
 
-*I learned how to use the Hc-sr04
+* I learned how to use the Hc-sr04
 
 
 
