@@ -14,8 +14,8 @@ delay and moves the servo based on the distance it finds.
 * I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
 
 * I learned how to use the Hc-sr04
-
-
+							Fritzing
+![GitHub Octocat](hello_functions/hello_fritzing.jpg)
 
 
 
@@ -30,5 +30,4 @@ utill the button is pressed again and it displays the new distance.
 
 * I also relearned the code to have the button be activated once when pressed/held down.
 
-							Code
-![GitHub Arduino](media/NewPing.jpg)
+							Fritzing
