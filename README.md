@@ -17,7 +17,7 @@ delay and moves the servo based on the distance it finds.
 							Fritzing
 
 ![GitHub Fritzing](hello_functions/hello_fritzing.jpg)
-Made by Hemming
+Made by Heming
 
 
 							NewPing 
