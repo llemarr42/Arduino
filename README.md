@@ -14,6 +14,7 @@ delay and moves the servo based on the distance it finds.
 * I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
 
 * I learned how to use the Hc-sr04
+
 							Fritzing
 
 ![GitHub Fritzing](hello_functions/hello_fritzing.jpg)
