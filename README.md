@@ -8,17 +8,15 @@ Loren's arduino assignments.
 I used a function to have the Hc-sro4 measure the distance constantly with a small 
 delay and moves the servo based on the distance it finds.
 
-							Learned
+						Learned
 * I learned what a fuction is, what is used for, and how to use it.
 
 * I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
 
 * I learned how to use the Hc-sr04
-
 							Fritzing
-
 ![GitHub Fritzing](hello_functions/hello_fritzing.jpg)
-Made by Heming
+
 
 
 							NewPing 
@@ -33,3 +31,4 @@ utill the button is pressed again and it displays the new distance.
 * I also relearned the code to have the button be activated once when pressed/held down.
 
 							Fritzing
+![GitHub NewPing](NewPing/NewPing.jpg)
