@@ -8,7 +8,7 @@ Loren's arduino assignments.
 I used a function to have the Hc-sro4 measure the distance constantly with a small 
 delay and moves the servo based on the distance it finds.
 
-						Learned
+							Learned
 * I learned what a fuction is, what is used for, and how to use it.
 
 * I learned how to take the distance and effencietly (with small amount of code) make the servo turn based on it
