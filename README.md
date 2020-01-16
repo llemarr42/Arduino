@@ -15,7 +15,7 @@ delay and moves the servo based on the distance it finds.
 
 * I learned how to use the Hc-sr04
 							Fritzing
-![GitHub Octocat](hello_functions/hello_fritzing.jpg)
+![GitHub Fritzing](hello_functions/hello_fritzing.jpg)
 
 
 
