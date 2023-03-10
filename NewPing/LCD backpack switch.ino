@@ -1,46 +1,55 @@
-// LCD backpack.ino
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display.
-// If 0x27 doesn't work, try 0x3F.
-int previous = LOW;
-int time = 0;
-int buttonPin = 11;
-int buttonState = 0;
-int switchState = 0;
-
-void setup()
-{
-	// put your setup code here, to run once.
-	Serial.begin(9600);
-	pinMode(4, INPUT);
-	pinMode(buttonPin, INPUT);
-	lcd.init();
-	lcd.setBacklight(HIGH);
-	lcd.setCursor(0, 0);
-	lcd.print("Hello World");
+#include <Servo.h>
+Servo myServo;
+Servo myServo2;
+int restAngle1 = 40;
+int moveAngle1 = 90;
+int Angle1 = 40;
+int restAngle2 = 94;
+int moveAngle2 = 97;
+int undoAngle2 = 91;
+int i = 0;
+int button = 0;
+int previous = 0;
+int pause = 0;
+int buttonPin = 7;
+void setup() {
+   Serial.begin(9600);
+  myServo.attach(10);
+  myServo2.attach(9);
+  pinMode(buttonPin, INPUT);
+  myServo2.write(restAngle2);
+  myServo.write(restAngle1);
 }
-
-void loop()
-{
-	// put your main code here, to run repeatedly:
-	buttonState = digitalRead(buttonPin);
-	switchState = digitalRead(4);
-	
-	lcd.setCursor(0, 1);
-	lcd.print(time);
-	if (buttonState == HIGH && previous == LOW)
-	{
-		if (switchState == HIGH){
-			(time = time + 1);
-			// Serial.println('1');
-		}
-		if (switchState == LOW)
-		{
-			(time = time - 1);
-			// Serial.println('0');
-		}
-	}
-	Serial.println(digitalRead(4));
-	previous = buttonState;
-} 
+void loop() {
+  button = digitalRead(buttonPin);
+  if (button == HIGH && previous == LOW){
+    for  (i ; i <100; i +=1){
+      Serial.println(Angle1);
+      myServo.write(Angle1);
+      delay(100);    
+      if (Angle1 <= moveAngle1) {
+        Angle1 += 1;
+      }
+      if (i <= 50) {
+        myServo2.write(moveAngle2);
+      }
+      else {
+        myServo2.write(restAngle2);
+      }
+    }
+    for  (i ; i > 0; i -=1){
+      Serial.println(Angle1);
+      myServo.write(Angle1);
+      delay(100);    
+      if (Angle1 >= restAngle1) { 
+        Angle1-= 1;
+      }
+      if (i >= 50) {
+        myServo2.write(undoAngle2);
+      }
+      else {
+        myServo2.write(restAngle2);
+      }
+   }
+  }
+}
